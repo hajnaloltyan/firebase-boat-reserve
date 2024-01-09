@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 import {
   FaTwitter, FaFacebook, FaGooglePlus, FaVimeoV, FaPinterest,
 } from 'react-icons/fa';
-import { selectUser } from '../redux/usersession/usersessionsSlice';
 import Logout from './Logout';
 import boatLogo from '../assets/images/boat-logo.png';
+import Login from './Login';
 
 const Header = () => {
   const user = useSelector(selectUser);
@@ -18,7 +18,6 @@ const Header = () => {
       { path: '/add-boat', text: 'Add Boat' },
       { path: '/delete-boat', text: 'Delete Boat' },
     ] : []),
-    ...(user ? [] : [{ path: '/login', text: 'Login' }, { path: '/signup', text: 'Sign up' }]),
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -98,10 +97,7 @@ const Header = () => {
             ))}
             {user && (
               <li className="text-center py-3">
-                Hi
-                {' '}
-                {user.name}
-                {' | '}
+                <Login setIsOpen={setIsOpen} />
                 <Logout setIsOpen={setIsOpen} />
               </li>
             )}
@@ -170,11 +166,7 @@ const Header = () => {
             ))}
             {user && (
               <li className="text-center py-6">
-                Hi
-                {' '}
-                {user.name}
-                !
-                {' | '}
+                <Login setIsOpen={setIsOpen} />
                 <Logout setIsOpen={setIsOpen} />
               </li>
             )}

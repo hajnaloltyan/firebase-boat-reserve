@@ -3,25 +3,25 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
-import { signOut } from 'firebase/auth';
-import { auth } from '../config/firebase';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from '../config/firebase';
 
-const Logout = ({ setIsOpen }) => {
+const Login = ({ setIsOpen }) => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     setIsOpen(false);
     try {
-      await signOut(auth);
+      await signInWithPopup(auth, googleProvider);
       Swal.fire({
-        title: 'Logout Successful',
-        text: 'You have successfully logged out',
+        title: 'Login Successful',
+        text: 'You have successfully logged in',
         icon: 'success',
       });
     } catch (error) {
       Swal.fire({
-        title: 'Logout Failed',
-        text: 'You have failed to logout',
+        title: 'Login Failed',
+        text: 'You have failed to login',
         icon: 'error',
       });
     }
@@ -30,13 +30,13 @@ const Logout = ({ setIsOpen }) => {
 
   return (
     <button type="button" onClick={handleLogout} className="uppercase">
-      Logout
+      Login with Google
     </button>
   );
 };
 
-Logout.propTypes = {
+Login.propTypes = {
   setIsOpen: PropTypes.func.isRequired,
 };
 
-export default Logout;
+export default Login;

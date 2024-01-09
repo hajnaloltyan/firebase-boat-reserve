@@ -6,8 +6,6 @@ import Layout from './components/Layout';
 import Boats from './components/pages/Boats';
 import BoatDetails from './components/pages/BoatDetails';
 import MyReservations from './components/pages/MyReservations';
-import Login from './components/pages/Login';
-import Signup from './components/pages/Signup';
 import Reserve from './components/pages/Reserve';
 import DeleteBoat from './components/pages/DeleteBoat';
 import AddBoat from './components/pages/AddBoat';
@@ -21,8 +19,6 @@ const App = () => (
         <Route path="reserve" element={<Reserve />} />
         <Route path="my-reservations" element={<MyReservations />} />
         <Route path="/delete-boat" element={<DeleteBoat />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
         <Route path="boats/:id" element={<BoatDetails />} />
         <Route path="add-boat" element={<AddBoat />} />
       </Route>
