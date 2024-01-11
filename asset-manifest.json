@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/firebase-boat-reserve/static/css/main.cdc4c41a.css",
+    "main.js": "/firebase-boat-reserve/static/js/main.304d8aa5.js",
+    "static/media/boat-logo.png": "/firebase-boat-reserve/static/media/boat-logo.78e76bf84eee31d11598.png",
+    "index.html": "/firebase-boat-reserve/index.html",
+    "main.cdc4c41a.css.map": "/firebase-boat-reserve/static/css/main.cdc4c41a.css.map",
+    "main.304d8aa5.js.map": "/firebase-boat-reserve/static/js/main.304d8aa5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cdc4c41a.css",
+    "static/js/main.304d8aa5.js"
+  ]
+}
