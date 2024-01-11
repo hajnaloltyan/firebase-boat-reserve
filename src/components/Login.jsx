@@ -1,18 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../config/firebase';
+import { login } from '../redux/user/userSlice';
 
 const Login = ({ setIsOpen }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogout = async () => {
     setIsOpen(false);
     try {
       await signInWithPopup(auth, googleProvider);
+      dispatch(login());
       Swal.fire({
         title: 'Login Successful',
         text: 'You have successfully logged in',

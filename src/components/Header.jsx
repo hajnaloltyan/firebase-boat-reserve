@@ -7,12 +7,13 @@ import {
 import Logout from './Logout';
 import boatLogo from '../assets/images/boat-logo.png';
 import Login from './Login';
+import { selectUserLoggedIn } from '../redux/user/userSlice';
 
 const Header = () => {
-  const user = useSelector(selectUser);
+  const userLoggedIn = useSelector(selectUserLoggedIn);
   const links = [
     { path: '/boats', text: 'Boats' },
-    ...(user ? [
+    ...(userLoggedIn ? [
       { path: '/reserve', text: 'Reserve' },
       { path: '/my-reservations', text: 'My Reservations' },
       { path: '/add-boat', text: 'Add Boat' },
@@ -97,8 +98,8 @@ const Header = () => {
             ))}
             {user && (
               <li className="text-center py-3">
-                <Login setIsOpen={setIsOpen} />
-                <Logout setIsOpen={setIsOpen} />
+                {userLoggedIn ? <Login setIsOpen={setIsOpen} />
+                  : <Logout setIsOpen={setIsOpen} />}
               </li>
             )}
           </ul>
