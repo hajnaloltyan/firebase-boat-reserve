@@ -96,12 +96,10 @@ const Header = () => {
                 </NavLink>
               </li>
             ))}
-            {user && (
-              <li className="text-center py-3">
-                {userLoggedIn ? <Login setIsOpen={setIsOpen} />
-                  : <Logout setIsOpen={setIsOpen} />}
-              </li>
-            )}
+            <li className="text-center py-3">
+              {userLoggedIn ? <Login setIsOpen={setIsOpen} />
+                : <Logout setIsOpen={setIsOpen} />}
+            </li>
           </ul>
 
           <div className="pb-6">
@@ -165,12 +163,10 @@ const Header = () => {
                 </NavLink>
               </li>
             ))}
-            {user && (
-              <li className="text-center py-6">
-                <Login setIsOpen={setIsOpen} />
-                <Logout setIsOpen={setIsOpen} />
-              </li>
-            )}
+            <li className="text-center py-6">
+              {userLoggedIn ? <Login setIsOpen={setIsOpen} />
+                : <Logout setIsOpen={setIsOpen} />}
+            </li>
           </ul>
         </nav>
 

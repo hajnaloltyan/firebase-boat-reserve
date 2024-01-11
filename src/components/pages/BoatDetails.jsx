@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBoatDetails } from '../../redux/boatDetails/boatDetailsSlice';
-import { selectUser } from '../../redux/usersession/usersessionsSlice';
+import { selectUserLoggedIn } from '../../redux/user/userSlice';
 
 const BoatDetails = () => {
   const boatDetailsState = useSelector((state) => state.boatDetails);
   const dispatch = useDispatch();
   const idBoat = useParams();
-  const user = useSelector(selectUser);
+  const userLoggedIn = useSelector(selectUserLoggedIn);
 
   const {
     name, picture, description, color, rent_price: rentPrice, price,
@@ -84,7 +84,7 @@ const BoatDetails = () => {
         </a>
 
         {/* Reserve Now button */}
-        {user && (
+        {userLoggedIn && (
           <a
             href="/reserve"
             className="font-bold px-6 py-3 text-2xl bg-lime-500 rounded-l-3xl text-white"

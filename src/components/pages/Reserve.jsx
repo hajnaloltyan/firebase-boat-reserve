@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import { selectUser } from '../../redux/usersession/usersessionsSlice';
 import { createReservation } from '../../redux/reservations/reservationsSlice';
 
 function Reserve() {
   const [boats, setBoats] = useState([]);
-  const user = useSelector(selectUser);
-  const [username, setUsername] = useState(user?.name);
+  const [username, setUsername] = useState('');
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [boatId, setBoatId] = useState(undefined);
@@ -110,7 +108,7 @@ function Reserve() {
                       {boat.rent_price}
                     </option>
                   ))
-                  : 'Not load'}
+                  : 'Not loaded yet'}
               </select>
             </div>
             <div className="flex justify-center">

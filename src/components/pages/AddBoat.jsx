@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { createBoat } from '../../redux/boats/boatsSlice';
-import { selectUser } from '../../redux/usersession/usersessionsSlice';
 
 const AddBoat = () => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
   const navigate = useNavigate();
 
   const [boatData, setBoatData] = useState({
     name: '',
     description: '',
     price: 0,
-    color: '',
+    colour: '',
     rent_price: 0,
-    user_id: user?.id,
     picture: '',
   });
 
@@ -34,7 +31,6 @@ const AddBoat = () => {
       price: 0,
       color: '',
       rent_price: 0,
-      user_id: user.id,
       picture: '',
     });
 
